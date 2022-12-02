@@ -105,6 +105,7 @@ function identifyWinner() {
       gameIsFinished = true;
       messageBanner.style.display = "block";
       bannerText.innerHTML = `${sessionData[firstSquare].name} WON!`;
+      updateTitle();
       return;
     }
 
@@ -115,6 +116,7 @@ function identifyWinner() {
       gameIsFinished = true;
       messageBanner.style.display = "block";
       bannerText.innerHTML = "TIE!";
+      updateTitle();
       return;
     }
   }
@@ -141,6 +143,10 @@ function newGame() {
   strike.className = "strike";
 
   squares.forEach((square) => (square.innerText = ""));
+}
+
+function updateTitle() {
+  document.title = `${sessionData["X"].wins}/${sessionData["O"].wins}/${sessionData.ties}`;
 }
 
 startNewGame.addEventListener("click", newGame);
