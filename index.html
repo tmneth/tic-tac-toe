@@ -10,17 +10,20 @@
     <title>make it dynimic later</title>
   </head>
   <body>
+    <button id="new-game">New game</button>
     <main>
       <section class="game-pad">
-        <input type="text" id="b1" readonly />
-        <input type="text" id="b2" readonly />
-        <input type="text" id="b3" readonly />
-        <input type="text" id="b4" readonly />
-        <input type="text" id="b5" readonly />
-        <input type="text" id="b6" readonly />
-        <input type="text" id="b7" readonly />
-        <input type="text" id="b8" readonly />
-        <input type="text" id="b9" readonly />
+        <div data-index="1" class="square" id="b1"></div>
+        <div data-index="2" class="square" id="b2"></div>
+        <div data-index="3" class="square" id="b3"></div>
+        <div data-index="4" class="square" id="b4"></div>
+        <div data-index="5" class="square" id="b5"></div>
+        <div data-index="6" class="square" id="b6"></div>
+        <div data-index="7" class="square" id="b7"></div>
+        <div data-index="8" class="square" id="b8"></div>
+        <div data-index="9" class="square" id="b9"></div>
+        <span id="strike" class="strike"></span>
+        <section id="banner"><span id="banner-text"></span></section>
       </section>
 
       <section class="session-info">
@@ -39,11 +42,11 @@
               onClick="modifyPlayerName(0)"
             ></i>
           </div>
-          <span>5</span>
+          <span id="x-wins">0</span>
         </div>
         <div class="details-block">
           <label for="player-x-name">TIE</label>
-          <span>2</span>
+          <span id="ties">0</span>
         </div>
         <div class="details-block">
           <label for="player-o-name">PLAYER (O)</label>
@@ -60,7 +63,7 @@
               onClick="modifyPlayerName(1)"
             ></i>
           </div>
-          <span>5</span>
+          <span id="y-wins">0</span>
         </div>
       </section>
     </main>
