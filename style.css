@@ -1,0 +1,77 @@
+:root {
+  --first-color: #002f41;
+  --second-color: #61b8d3;
+  --white-color: #fff;
+}
+
+body {
+  font-family: Google Sans, sans-serif;
+  background-color: var(--first-color);
+  max-width: max-content;
+  margin: auto;
+  max-width: 55rem;
+  width: 100%;
+  color: #fff;
+}
+
+main {
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+}
+
+input {
+  border-radius: none;
+}
+
+/* GAME PAD */
+
+.game-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.game-pad > input {
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 2px solid var(--second-color);
+  width: 7rem;
+  height: 7rem;
+  background-color: transparent;
+}
+
+#b1,
+#b2,
+#b3 {
+  border-top: none;
+}
+
+#b1,
+#b4,
+#b7 {
+  border-left: none;
+}
+
+#b3,
+#b6,
+#b9 {
+  border-right: none;
+}
+
+#b7,
+#b8,
+#b9 {
+  border-bottom: none;
+}
+
+.session-info {
+  display: flex;
+  gap: 1rem;
+}
+
+.details-block {
+  display: flex;
+  flex-direction: column;
+}
