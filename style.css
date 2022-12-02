@@ -84,24 +84,27 @@ input {
   cursor: pointer;
 }
 .player-name-group > input {
-  padding: 0.25rem;
-  width: 4rem;
+  padding-bottom: 0.25rem;
+  max-width: 2.5rem;
   background-color: var(--first-color);
   color: var(--white-color);
-  border: thin solid var(--second-color);
+  border: none;
+  border-bottom: thin solid var(--second-color);
   outline: none;
 }
 
 .player-name-group {
+  max-width: 100%;
   display: flex;
   gap: 0.25rem;
   align-items: center;
 }
 
 input[disabled] {
-  padding: 0;
+  padding-bottom: 0.25rem;
   cursor: not-allowed;
   background-color: var(--first-color);
-  color: var(--white-color);
+  color: rgb(178, 209, 247);
   border: none;
+  border-bottom: thin solid transparent;
 }
