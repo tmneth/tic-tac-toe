@@ -11,7 +11,7 @@ body {
   margin: auto;
   max-width: 55rem;
   width: 100%;
-  color: #fff;
+  color: var(--white-color);
 }
 
 main {
@@ -68,10 +68,40 @@ input {
 
 .session-info {
   display: flex;
-  gap: 1rem;
+  gap: 3rem;
 }
 
 .details-block {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* USER NAME */
+
+.player-name-group > i {
+  cursor: pointer;
+}
+.player-name-group > input {
+  padding: 0.25rem;
+  width: 4rem;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  border: thin solid var(--second-color);
+  outline: none;
+}
+
+.player-name-group {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+input[disabled] {
+  padding: 0;
+  cursor: not-allowed;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  border: none;
 }

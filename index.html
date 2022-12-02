@@ -25,21 +25,47 @@
 
       <section class="session-info">
         <div class="details-block">
-          <label for="layer-x-name">PLAYER (X)</label>
-          <input id="player-x-name" class="player-name" />
-          <span></span>
+          <label for="player-x-name">PLAYER (X)</label>
+          <div class="player-name-group">
+            <input
+              id="player-x-name"
+              class="player-name"
+              maxlength="5"
+              disabled
+            />
+            <i
+              class="fa-regular fa-pen-to-square"
+              onClick="modifyPlayerName(0)"
+            ></i>
+          </div>
+          <span>5</span>
         </div>
         <div class="details-block">
-          <h4>TIE</h4>
-          <span></span>
+          <label for="player-x-name">TIE</label>
+          <span>2</span>
         </div>
         <div class="details-block">
-          <label for="layer-o-name">PLAYER (O)</label>
-          <input id="player-o-name" class="player-name" />
-          <span></span>
+          <label for="player-o-name">PLAYER (O)</label>
+          <div class="player-name-group">
+            <input
+              id="player-o-name"
+              class="player-name"
+              maxlength="5"
+              disabled
+            />
+            <i
+              class="fa-regular fa-pen-to-square"
+              onClick="modifyPlayerName(1)"
+            ></i>
+          </div>
+          <span>5</span>
         </div>
       </section>
     </main>
     <script src="main.js"></script>
+    <script
+      src="https://kit.fontawesome.com/911e9315c6.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
