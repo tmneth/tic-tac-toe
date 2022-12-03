@@ -59,7 +59,28 @@ input {
   border-radius: none;
 }
 
+.session-controls {
+  display: flex;
+  /* align-items: space-between; */
+  gap: 1rem;
+  width: 100%;
+}
+
+.session-trigger {
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
 .session-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.session-scores {
   display: flex;
   gap: 3rem;
 }
@@ -124,7 +145,7 @@ form {
 
 .form-controls {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .warning-msg {
@@ -157,6 +178,7 @@ form > div > input {
   border: thin solid var(--second-color);
   color: var(--white-color);
   font-weight: 600;
+  font-size: 0.8rem;
   transition: opacity 0.125s ease-in-out;
 }
 
@@ -174,37 +196,16 @@ form > div > input {
 }
 
 @media screen and (max-width: 768px) {
-  .restart-wrapper {
-    flex-direction: column;
-  }
-
-  .restart-session {
-    position: static;
-  }
-
-  #new-game {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-  }
-
-  #redirect-to-auth {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-  }
-
-  .form-controls {
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 100%;
-  }
-
   .styled-button {
     width: 100% !important;
   }
   #turn {
     font-size: 1.75rem;
+  }
+  .session-controls,
+  .form-controls {
+    flex-direction: column;
+    width: 100%;
   }
 }
 
