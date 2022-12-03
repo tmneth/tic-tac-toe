@@ -113,21 +113,21 @@ const highlightTie = () => {
 };
 
 const winningCombinations = [
-  { combination: [1, 2, 3] },
-  { combination: [4, 5, 6] },
-  { combination: [7, 8, 9] },
-  { combination: [1, 4, 7] },
-  { combination: [2, 5, 8] },
-  { combination: [3, 6, 9] },
-  { combination: [1, 5, 9] },
-  { combination: [3, 5, 7] },
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [1, 4, 7],
+  [2, 5, 8],
+  [3, 6, 9],
+  [1, 5, 9],
+  [3, 5, 7],
 ];
 
 function identifyWinner() {
-  for (winningSet of winningCombinations) {
-    const firstSquare = padState[winningSet.combination[0] - 1];
-    const secondSquare = padState[winningSet.combination[1] - 1];
-    const thirdSquare = padState[winningSet.combination[2] - 1];
+  for (combination of winningCombinations) {
+    const firstSquare = padState[combination[0] - 1];
+    const secondSquare = padState[combination[1] - 1];
+    const thirdSquare = padState[combination[2] - 1];
 
     // console.log(
     //   `set: ${winningSet.combination}, 1:${firstSquare}, 2: ${secondSquare}, 3:${thirdSquare}`
@@ -139,7 +139,7 @@ function identifyWinner() {
       firstSquare == thirdSquare
     ) {
       updateWinsCount(firstSquare);
-      highlightWinner(winningSet.combination);
+      highlightWinner(combination);
       gameIsFinished = true;
       turn.innerHTML = `${sessionData[firstSquare].name} WON!`;
       return;

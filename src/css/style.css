@@ -226,7 +226,7 @@ li:not(:last-child) {
     border-color: var(--second-color);
   }
   100% {
-    border-color: transparent;
+    color: transparent;
   }
 }
 
