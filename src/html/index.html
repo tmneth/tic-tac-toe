@@ -14,7 +14,10 @@
         <div id="new-game" class="link-to-auth icon-wrapper">
           <i class="fa-solid fa-play fa-xl"></i>
         </div>
-        <a class="link-to-auth icon-wrapper" href="auth.html"
+        <a
+          id="redirect-to-auth"
+          class="link-to-auth icon-wrapper"
+          href="auth.html"
           ><i class="fa-solid fa-repeat fa-xl"></i
         ></a>
       </div>
@@ -36,7 +39,7 @@
 
       <section class="session-info">
         <div class="details-block">
-          <label for="player-x-name">PLAYER (X)</label>
+          <label class="name-label" for="player-x-name">PLAYER (X)</label>
           <span class="player-name" id="player-x-name"></span>
           <span class="score-display" id="x-wins">0</span>
         </div>
@@ -45,7 +48,7 @@
           <span class="score-display" id="ties">0</span>
         </div>
         <div class="details-block">
-          <label for="player-o-name">PLAYER (O)</label>
+          <label class="name-label" for="player-o-name">PLAYER (O)</label>
           <span class="player-name" id="player-o-name"></span>
           <span class="score-display" id="o-wins">0</span>
         </div>

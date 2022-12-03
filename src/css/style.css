@@ -169,18 +169,31 @@ form > div > input {
   border: thin solid var(--first-color);
 }
 
+.name-label {
+  text-align: center;
+}
+
 @media screen and (max-width: 768px) {
   .restart-wrapper {
     flex-direction: column;
   }
 
   .restart-session {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    bottom: auto;
-    left: auto;
+    position: static;
   }
+
+  #new-game {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+
+  #redirect-to-auth {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
   .form-controls {
     flex-direction: column;
     gap: 0.5rem;
@@ -191,7 +204,7 @@ form > div > input {
     width: 100% !important;
   }
   #turn {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 }
 
@@ -226,7 +239,7 @@ li:not(:last-child) {
     border-color: var(--second-color);
   }
   100% {
-    color: transparent;
+    border-color: transparent;
   }
 }
 

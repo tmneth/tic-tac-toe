@@ -26,10 +26,15 @@
   opacity: 0.8;
   content: attr(data-index);
   position: absolute;
-  top: 7px;
-  left: 7px;
+  top: 0.4rem;
+  left: 0.4rem;
   font-size: 1rem;
   color: var(--second-color);
+}
+
+.game-pad > div:nth-child(-n + 3)::before {
+  top: 0.25rem;
+  left: 0.4rem;
 }
 
 .game-pad > div {
@@ -68,8 +73,23 @@
 
 @media screen and (max-width: 768px) {
   .game-pad > div {
-    width: 5rem;
-    height: 5rem;
-    font-size: 3rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    font-size: 2.75rem;
+  }
+
+  .game-pad > div::before {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .game-pad > div {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.75rem;
+  }
+  #turn {
+    font-size: 1.25rem;
   }
 }
