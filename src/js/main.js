@@ -1,8 +1,8 @@
 (function isSessionUp() {
-  if (!window.localStorage.length) window.location.assign("auth.html");
+  if (!window.sessionStorage.length) window.location.assign("auth.html");
 })();
 
-let sessionData = JSON.parse(window.localStorage.getItem("sessionData"));
+let sessionData = JSON.parse(window.sessionStorage.getItem("sessionData"));
 
 const strike = document.getElementById("strike");
 const firstPlayerName = document.getElementById("player-x-name");
@@ -15,7 +15,7 @@ const startNewGame = document.getElementById("new-game");
 const squares = document.querySelectorAll(".square");
 
 (function updateGameState() {
-  document.title = sessionData.sessionName;
+  document.title = `session: ${sessionData.sessionName}`;
 
   firstPlayerName.innerHTML = sessionData["X"].name;
   secondPlayerName.innerHTML = sessionData["O"].name;
@@ -150,7 +150,7 @@ function identifyWinner() {
 function updateTieCount() {
   sessionData.ties++;
   tiesCount.innerHTML = sessionData.ties;
-  window.localStorage.setItem("sessionData", JSON.stringify(sessionData));
+  window.sessionStorage.setItem("sessionData", JSON.stringify(sessionData));
 }
 
 function updateWinsCount(userId) {
@@ -160,7 +160,7 @@ function updateWinsCount(userId) {
   } else {
     secondPlayerWinsCount.innerHTML = sessionData[userId].wins;
   }
-  window.localStorage.setItem("sessionData", JSON.stringify(sessionData));
+  window.sessionStorage.setItem("sessionData", JSON.stringify(sessionData));
 }
 
 function newGame() {

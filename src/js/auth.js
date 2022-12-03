@@ -12,7 +12,7 @@ const form = document.getElementById("form");
 })();
 
 const terminateSession = () => {
-  localStorage.clear();
+  sessionStorage.clear();
   warningBanner.style.display = "none";
   form.style.display = "flex";
 };
@@ -34,5 +34,5 @@ contactForm.addEventListener("submit", function (e) {
   sessionData["X"].name = document.getElementById("player-x-name").value;
   sessionData["O"].name = document.getElementById("player-o-name").value;
 
-  window.localStorage.setItem("sessionData", JSON.stringify(sessionData));
+  window.sessionStorage.setItem("sessionData", JSON.stringify(sessionData));
 });
