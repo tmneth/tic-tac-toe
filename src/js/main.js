@@ -1,3 +1,7 @@
+(function isSessionUp() {
+  if (!window.localStorage.length) window.location.assign("auth.html");
+})();
+
 let sessionData = JSON.parse(window.localStorage.getItem("sessionData"));
 
 const strike = document.getElementById("strike");
