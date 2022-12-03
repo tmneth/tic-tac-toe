@@ -2,7 +2,7 @@ const warningBanner = document.getElementById("warning");
 const form = document.getElementById("form");
 
 (function isSessionUp() {
-  if (window.localStorage.length) {
+  if (window.sessionStorage.length) {
     warningBanner.style.display = "flex";
     form.style.display = "none";
   } else {
