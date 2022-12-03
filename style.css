@@ -228,3 +228,15 @@ input[disabled] {
   align-items: center;
   height: 100%;
 }
+
+/* DYNAMIC HOVER */
+
+/* TILE HOVER STATES */
+.X-hover:hover:after {
+  content: "X";
+  opacity: 0.5;
+}
+.O-hover:hover:after {
+  content: "O";
+  opacity: 0.5;
+}

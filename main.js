@@ -74,9 +74,27 @@ function squareClick(event) {
     padState[squareNum - 1] = "O";
     currPlayer = "X";
   }
+  squareHover();
   identifyWinner();
   //   console.log(padState);
 }
+
+function squareHover() {
+  squares.forEach((square) => {
+    square.classList.remove("X-hover");
+    square.classList.remove("O-hover");
+  });
+
+  const hoverClass = `${currPlayer}-hover`;
+
+  squares.forEach((square) => {
+    if (square.innerHTML == "") {
+      square.classList.add(hoverClass);
+    }
+  });
+}
+
+squareHover();
 
 const winningCombinations = [
   { combination: [1, 2, 3], strikeThrough: "s-row-1" },
@@ -143,6 +161,8 @@ function newGame() {
   strike.className = "strike";
 
   squares.forEach((square) => (square.innerText = ""));
+
+  squareHover();
 }
 
 function updateTitle() {
