@@ -10,8 +10,8 @@
     <title>0/0/0</title>
   </head>
   <body>
-    <button id="new-game">New game</button>
     <main>
+      <h3 id="turn">X's Turn</h3>
       <section class="game-pad">
         <div data-index="1" class="square" id="b1"></div>
         <div data-index="2" class="square" id="b2"></div>
@@ -23,7 +23,6 @@
         <div data-index="8" class="square" id="b8"></div>
         <div data-index="9" class="square" id="b9"></div>
         <span id="strike" class="strike"></span>
-        <section id="banner"><span id="banner-text"></span></section>
       </section>
 
       <section class="session-info">
@@ -66,6 +65,7 @@
           <span id="o-wins">0</span>
         </div>
       </section>
+      <button id="new-game">New game</button>
     </main>
     <script src="main.js"></script>
     <script

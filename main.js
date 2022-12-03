@@ -12,8 +12,7 @@ const strike = document.getElementById("strike");
 const firstPlayerWinsCount = document.getElementById("x-wins");
 const secondPlayerWinsCount = document.getElementById("o-wins");
 const tiesCount = document.getElementById("ties");
-const messageBanner = document.getElementById("banner");
-const bannerText = document.getElementById("banner-text");
+const turn = document.getElementById("turn");
 const startNewGame = document.getElementById("new-game");
 
 const setProps = (playerId, oldIcon, newIcon, isEnabled, newOnClick) => {
@@ -74,6 +73,7 @@ function squareClick(event) {
     padState[squareNum - 1] = "O";
     currPlayer = "X";
   }
+  turn.innerHTML = `${currPlayer}'s Turn`;
   squareHover();
   identifyWinner();
   //   console.log(padState);
@@ -101,6 +101,8 @@ function squareKeyTrigger(event) {
         padState[squareNum - 1] = "O";
         currPlayer = "X";
       }
+      turn.innerHTML = `${currPlayer}'s Turn`;
+      squareHover();
       identifyWinner();
     }
   }
@@ -148,8 +150,7 @@ function identifyWinner() {
       updateWinsCount(firstSquare);
       strike.classList.add(winningSet.strikeThrough);
       gameIsFinished = true;
-      messageBanner.style.display = "block";
-      bannerText.innerHTML = `${sessionData[firstSquare].name} WON!`;
+      turn.innerHTML = `${sessionData[firstSquare].name} WON!`;
       updateTitle();
       return;
     }
@@ -159,8 +160,7 @@ function identifyWinner() {
     if (allSquaresFilled && !gameIsFinished) {
       updateTieCount();
       gameIsFinished = true;
-      messageBanner.style.display = "block";
-      bannerText.innerHTML = "TIE!";
+      turn.innerHTML = "TIE!";
       updateTitle();
       return;
     }
@@ -181,13 +181,14 @@ function updateWinsCount(userId) {
 function newGame() {
   gameIsFinished = false;
 
-  messageBanner.style.display = "none";
-
   padState.fill(null);
 
   strike.className = "strike";
 
   squares.forEach((square) => (square.innerText = ""));
+
+  currPlayer = "X";
+  turn.innerHTML = `${currPlayer}'s Turn`;
 
   squareHover();
 }

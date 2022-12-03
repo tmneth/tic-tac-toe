@@ -8,21 +8,16 @@ body {
   font-family: Google Sans, sans-serif;
   background-color: var(--first-color);
   /* max-width: max-content; */
-  margin: auto;
   max-width: 55rem;
   width: 100%;
   color: var(--white-color);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: auto;
   gap: 4rem;
 }
 
 button {
   cursor: pointer;
   background-color: (var(--first-color));
-  margin: 2rem;
   padding: 0.5rem;
   width: 15rem;
   height: 5rem;
@@ -40,6 +35,7 @@ button:hover {
 }
 
 main {
+  margin: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -219,26 +215,6 @@ input[disabled] {
   top: calc(7rem + (7rem / 2 - 0.15rem));
 }
 
-#banner {
-  z-index: 2;
-  position: absolute;
-  display: none;
-  width: 21rem;
-  height: 14rem;
-  top: 3.5rem;
-  left: 0rem;
-  background-color: var(--first-color);
-  border: thin solid var(--second-color);
-}
-
-#banner-text {
-  font-size: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
 #x-wins,
 #o-wins {
   font-size: 2rem;
@@ -253,4 +229,10 @@ input[disabled] {
 .O-hover:hover:after {
   content: "O";
   opacity: 0.5;
+}
+
+#turn {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 500;
 }
