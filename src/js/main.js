@@ -103,15 +103,24 @@ function squareHover() {
 
 squareHover();
 
+const highlightWinner = (combination) => {
+  for (let i = 0; i < combination.length; ++i)
+    squares[combination[i] - 1].classList.add("winning-square");
+};
+
+const highlightTie = () => {
+  squares.forEach((square) => square.classList.add("tie-animation"));
+};
+
 const winningCombinations = [
-  { combination: [1, 2, 3], strikeThrough: "s-row-1" },
-  { combination: [4, 5, 6], strikeThrough: "s-row-2" },
-  { combination: [7, 8, 9], strikeThrough: "s-row-3" },
-  { combination: [1, 4, 7], strikeThrough: "s-col-1" },
-  { combination: [2, 5, 8], strikeThrough: "s-col-2" },
-  { combination: [3, 6, 9], strikeThrough: "s-col-3" },
-  { combination: [1, 5, 9], strikeThrough: "s-diag-1" },
-  { combination: [3, 5, 7], strikeThrough: "s-diag-2" },
+  { combination: [1, 2, 3] },
+  { combination: [4, 5, 6] },
+  { combination: [7, 8, 9] },
+  { combination: [1, 4, 7] },
+  { combination: [2, 5, 8] },
+  { combination: [3, 6, 9] },
+  { combination: [1, 5, 9] },
+  { combination: [3, 5, 7] },
 ];
 
 function identifyWinner() {
@@ -130,7 +139,7 @@ function identifyWinner() {
       firstSquare == thirdSquare
     ) {
       updateWinsCount(firstSquare);
-      strike.classList.add(winningSet.strikeThrough);
+      highlightWinner(winningSet.combination);
       gameIsFinished = true;
       turn.innerHTML = `${sessionData[firstSquare].name} WON!`;
       return;
@@ -141,6 +150,7 @@ function identifyWinner() {
 
   if (allSquaresFilled && !gameIsFinished) {
     updateTieCount();
+    highlightTie();
     gameIsFinished = true;
     turn.innerHTML = "TIE!";
     return;
@@ -168,7 +178,7 @@ function newGame() {
 
   padState.fill(null);
 
-  strike.className = "strike";
+  squares.forEach((square) => (square.className = "strike"));
 
   squares.forEach((square) => (square.innerText = ""));
 

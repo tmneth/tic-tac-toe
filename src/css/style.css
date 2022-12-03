@@ -211,3 +211,29 @@ form > div > input {
 li:not(:last-child) {
   margin-bottom: 10px;
 }
+
+@keyframes pulsate-square {
+  0% {
+    color: var(--second-color);
+  }
+  100% {
+    color: transparent;
+  }
+}
+
+@keyframes pulsate-tie {
+  0% {
+    border-color: var(--second-color);
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+.winning-square {
+  animation: pulsate-square 0.3s 3;
+}
+
+.tie-animation {
+  animation: pulsate-tie 0.3s 3;
+}
