@@ -118,6 +118,10 @@ function identifyWinner() {
     const secondSquare = padState[winningSet.combination[1] - 1];
     const thirdSquare = padState[winningSet.combination[2] - 1];
 
+    // console.log(
+    //   `set: ${winningSet.combination}, 1:${firstSquare}, 2: ${secondSquare}, 3:${thirdSquare}`
+    // );
+
     if (
       firstSquare &&
       firstSquare == secondSquare &&
@@ -129,15 +133,15 @@ function identifyWinner() {
       turn.innerHTML = `${sessionData[firstSquare].name} WON!`;
       return;
     }
+  }
 
-    const allSquaresFilled = padState.every((square) => square != null);
+  const allSquaresFilled = padState.every((square) => square != null);
 
-    if (allSquaresFilled && !gameIsFinished) {
-      updateTieCount();
-      gameIsFinished = true;
-      turn.innerHTML = "TIE!";
-      return;
-    }
+  if (allSquaresFilled && !gameIsFinished) {
+    updateTieCount();
+    gameIsFinished = true;
+    turn.innerHTML = "TIE!";
+    return;
   }
 }
 
