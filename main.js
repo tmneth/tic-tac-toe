@@ -10,7 +10,7 @@ gameIsFinished = false;
 
 const strike = document.getElementById("strike");
 const firstPlayerWinsCount = document.getElementById("x-wins");
-const secondPlayerWinsCount = document.getElementById("y-wins");
+const secondPlayerWinsCount = document.getElementById("o-wins");
 const tiesCount = document.getElementById("ties");
 const messageBanner = document.getElementById("banner");
 const bannerText = document.getElementById("banner-text");
@@ -77,6 +77,33 @@ function squareClick(event) {
   squareHover();
   identifyWinner();
   //   console.log(padState);
+}
+
+document.body.addEventListener("keydown", squareKeyTrigger, false);
+
+function squareKeyTrigger(event) {
+  const keyCode = event.keyCode;
+
+  for (let numCode = 49, i = 0; numCode <= 57; numCode++, i++) {
+    if (keyCode === numCode) {
+      const square = squares[i];
+      const squareNum = square.dataset.index;
+      if (gameIsFinished) return;
+
+      if (square.innerHTML) {
+        return;
+      } else if (currPlayer === "X") {
+        square.innerHTML = "X";
+        padState[squareNum - 1] = "X";
+        currPlayer = "O";
+      } else {
+        square.innerHTML = "O";
+        padState[squareNum - 1] = "O";
+        currPlayer = "X";
+      }
+      identifyWinner();
+    }
+  }
 }
 
 function squareHover() {

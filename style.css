@@ -61,6 +61,7 @@ input {
 }
 
 .game-pad > div {
+  position: relative;
   cursor: pointer;
   box-sizing: border-box;
   border: 0.15rem solid var(--second-color);
@@ -74,6 +75,15 @@ input {
   color: var(--second-color);
 }
 
+.game-pad > div::before {
+  opacity: 0.8;
+  content: attr(data-index);
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  font-size: 1rem;
+}
+
 .square {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -81,7 +91,6 @@ input {
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 #b1,
@@ -229,9 +238,13 @@ input[disabled] {
   height: 100%;
 }
 
+#x-wins,
+#o-wins {
+  font-size: 2rem;
+}
+
 /* DYNAMIC HOVER */
 
-/* TILE HOVER STATES */
 .X-hover:hover:after {
   content: "X";
   opacity: 0.5;
