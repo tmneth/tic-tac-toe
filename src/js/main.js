@@ -64,6 +64,8 @@ document.body.addEventListener("keydown", squareKeyTrigger, false);
 function squareKeyTrigger(event) {
   const keyCode = event.keyCode;
 
+  navigator.vibrate(150);
+
   for (let numCode = 49, i = 0; numCode <= 57; numCode++, i++) {
     if (keyCode === numCode) {
       const square = squares[i];

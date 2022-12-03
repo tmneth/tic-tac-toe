@@ -170,7 +170,6 @@ form > div > input {
 
 @media screen and (max-width: 768px) {
   .restart-wrapper {
-    margin-top: 20px;
     flex-direction: column;
   }
 
