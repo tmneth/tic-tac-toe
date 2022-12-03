@@ -1,0 +1,169 @@
+:root {
+  --first-color: #002f41;
+  --second-color: #61b8d3;
+  --white-color: #fff;
+}
+
+body {
+  font-family: Google Sans, sans-serif;
+  background-color: var(--first-color);
+  max-width: 55rem;
+  width: 100%;
+  color: var(--white-color);
+  margin: auto;
+  gap: 4rem;
+}
+
+.restart-session {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
+.restart-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-wrapper {
+  z-index: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 3rem;
+  /* padding: 1rem; */
+  border-radius: 100%;
+  text-decoration: none;
+  background-color: var(--second-color);
+  color: var(--first-color);
+  transition: opacity 0.125s ease-in-out;
+}
+
+.link-to-auth:hover,
+.fa-play:hover {
+  opacity: 0.7;
+}
+
+main {
+  position: relative;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+}
+
+input {
+  border-radius: none;
+}
+
+.session-info {
+  display: flex;
+  gap: 3rem;
+}
+
+.details-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input[disabled] {
+  padding-bottom: 0.25rem;
+  cursor: not-allowed;
+  background-color: var(--first-color);
+  color: rgb(178, 209, 247);
+  border: none;
+  border-bottom: thin solid transparent;
+}
+
+.score-display {
+  font-size: 2rem;
+}
+
+.player-name {
+  color: var(--second-color);
+  text-transform: capitalize;
+}
+
+/* DYNAMIC HOVER */
+
+.X-hover:hover:after {
+  content: "X";
+  opacity: 0.5;
+}
+.O-hover:hover:after {
+  content: "O";
+  opacity: 0.5;
+}
+
+#turn {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+/* AUTH */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 28rem;
+  width: 100%;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+form > div > label {
+  font-size: 0.8rem;
+}
+
+form > div > input {
+  height: 30px;
+  background-color: var(--second-color);
+  border: thin solid var(--first-color);
+}
+
+#start-session {
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+  text-transform: uppercase;
+  background-color: var(--first-color);
+  border: thin solid var(--second-color);
+  color: var(--white-color);
+  font-weight: 600;
+  transition: opacity 0.125s ease-in-out;
+}
+
+#start-session:hover {
+  opacity: 0.7;
+}
+
+#start-session:active {
+  background-color: var(--second-color);
+  border: thin solid var(--first-color);
+}
+
+@media screen and (max-width: 768px) {
+  .restart-wrapper {
+    margin-top: 20px;
+    flex-direction: column;
+  }
+
+  .restart-session {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    top: auto;
+    left: auto;
+  }
+}

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../css/style.css" />
+
     <title>Welcome!</title>
   </head>
   <body>
@@ -20,20 +22,20 @@
         </ul>
         <div class="input-section">
           <label for="session-name">Session's name</label>
-          <input id="session-name" type="text" required />
+          <input id="session-name" type="text" maxlength="10" required />
         </div>
         <div class="input-section">
           <label for="player-x-name">X's player's name</label>
-          <input id="player-x-name" type="text" required />
+          <input id="player-x-name" type="text" maxlength="10" required />
         </div>
         <div class="input-section">
           <label for="player-o-name">O's player's name</label>
-          <input id="player-o-name" type="text" required />
+          <input id="player-o-name" type="text" maxlength="10" required />
         </div>
         <input id="start-session" value="Continue" type="submit" />
       </form>
     </main>
 
-    <script src="auth.js"></script>
+    <script src="../js/auth.js"></script>
   </body>
 </html>

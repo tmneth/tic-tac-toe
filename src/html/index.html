@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- <title>0/0/0</title> -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/gamepad.css" />
   </head>
   <body>
     <div class="restart-session">
       <div class="restart-wrapper">
-        <button id="new-game">New game</button>
-        <a class="link-to-auth" href="auth.html"
+        <div class="link-to-auth icon-wrapper">
+          <i id="new-game" class="fa-solid fa-play fa-xl"></i>
+        </div>
+        <a class="link-to-auth icon-wrapper" href="auth.html"
           ><i class="fa-solid fa-repeat fa-xl"></i
         ></a>
       </div>
@@ -36,25 +37,22 @@
       <section class="session-info">
         <div class="details-block">
           <label for="player-x-name">PLAYER (X)</label>
-          <div class="player-name-group">
-            <span id="player-x-name"></span>
-          </div>
-          <span id="x-wins">0</span>
+          <span class="player-name" id="player-x-name"></span>
+          <span class="score-display" id="x-wins">0</span>
         </div>
         <div class="details-block">
           <label for="player-x-name">TIE</label>
-          <span id="ties">0</span>
+          <span class="score-display" id="ties">0</span>
         </div>
         <div class="details-block">
           <label for="player-o-name">PLAYER (O)</label>
-          <div class="player-name-group">
-            <span id="player-o-name"></span>
-          </div>
-          <span id="o-wins">0</span>
+          <span class="player-name" id="player-o-name"></span>
+          <span class="score-display" id="o-wins">0</span>
         </div>
       </section>
     </main>
-    <script src="main.js"></script>
+
+    <script src="../js/main.js"></script>
     <script
       src="https://kit.fontawesome.com/911e9315c6.js"
       crossorigin="anonymous"

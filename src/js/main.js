@@ -122,7 +122,6 @@ function identifyWinner() {
       strike.classList.add(winningSet.strikeThrough);
       gameIsFinished = true;
       turn.innerHTML = `${sessionData[firstSquare].name} WON!`;
-      updateTitle();
       return;
     }
 
@@ -132,7 +131,6 @@ function identifyWinner() {
       updateTieCount();
       gameIsFinished = true;
       turn.innerHTML = "TIE!";
-      updateTitle();
       return;
     }
   }
@@ -162,10 +160,6 @@ function newGame() {
   turn.innerHTML = `${currPlayer}'s Turn`;
 
   squareHover();
-}
-
-function updateTitle() {
-  document.title = `${sessionData["X"].wins}/${sessionData["O"].wins}/${sessionData.ties}`;
 }
 
 startNewGame.addEventListener("click", newGame);
