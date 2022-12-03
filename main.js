@@ -1,8 +1,11 @@
-let sessionData = {
-  X: { name: "XXX", wins: 0 },
-  O: { name: "OOO", wins: 0 },
-  ties: 0,
-};
+let sessionData = JSON.parse(window.localStorage.getItem("sessionData"));
+
+(function updateGameState() {
+  document.title = sessionData.sessionName;
+
+  document.getElementById("player-x-name").innerHTML = sessionData["X"].name;
+  document.getElementById("player-o-name").innerHTML = sessionData["O"].name;
+})();
 
 currPlayer = "X";
 currGameNum = 0;
@@ -14,38 +17,6 @@ const secondPlayerWinsCount = document.getElementById("o-wins");
 const tiesCount = document.getElementById("ties");
 const turn = document.getElementById("turn");
 const startNewGame = document.getElementById("new-game");
-
-const setProps = (playerId, oldIcon, newIcon, isEnabled, newOnClick) => {
-  const playerNameSection =
-    document.getElementsByClassName("player-name-group")[playerId];
-
-  let currPlayerName = playerNameSection.getElementsByTagName("input");
-  let currIcon = playerNameSection.getElementsByTagName("i");
-
-  for (let i = 0; i < currPlayerName.length; i++) {
-    currPlayerName[i].disabled = !isEnabled;
-    currIcon[i].classList.replace(oldIcon, newIcon);
-    currIcon[i].onclick = function () {
-      newOnClick(playerId, currPlayerName[i].value);
-    };
-  }
-};
-
-const modifyPlayerName = (playerId) => {
-  setProps(playerId, "fa-pen-to-square", "fa-floppy-disk", true, setPlayerName);
-};
-
-const setPlayerName = (playerId, newName) => {
-  const currPlayer = playerId === 0 ? "player-X" : "player-O";
-  sessionData[currPlayer] = newName;
-  setProps(
-    playerId,
-    "fa-floppy-disk",
-    "fa-pen-to-square",
-    false,
-    modifyPlayerName
-  );
-};
 
 const squares = document.querySelectorAll(".square");
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome!</title>
+  </head>
+  <body>
+    <main>
+      <form id="form">
+        <h3 class="auth-title">Welcome to tic-tac-toe!</h3>
+        <span class="auth-list-title">Here are some rules</span>
+        <ul>
+          <li>Click on the tiles to make your move</li>
+          <li>Use keys from 0-9 to fill tiles using your keyboard</li>
+          <li>You can always restart your session to go back here</li>
+          <li>Have fun</li>
+        </ul>
+        <div class="input-section">
+          <label for="session-name">Session's name</label>
+          <input id="session-name" type="text" required />
+        </div>
+        <div class="input-section">
+          <label for="player-x-name">X's player's name</label>
+          <input id="player-x-name" type="text" required />
+        </div>
+        <div class="input-section">
+          <label for="player-o-name">O's player's name</label>
+          <input id="player-o-name" type="text" required />
+        </div>
+        <input id="start-session" value="Continue" type="submit" />
+      </form>
+    </main>
+
+    <script src="auth.js"></script>
+  </body>
+</html>

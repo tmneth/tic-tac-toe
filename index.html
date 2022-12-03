@@ -7,9 +7,17 @@
 
     <link rel="stylesheet" href="style.css" />
 
-    <title>0/0/0</title>
+    <!-- <title>0/0/0</title> -->
   </head>
   <body>
+    <div class="restart-session">
+      <div class="restart-wrapper">
+        <button id="new-game">New game</button>
+        <a class="link-to-auth" href="auth.html"
+          ><i class="fa-solid fa-repeat fa-xl"></i
+        ></a>
+      </div>
+    </div>
     <main>
       <h3 id="turn">X's Turn</h3>
       <section class="game-pad">
@@ -29,17 +37,7 @@
         <div class="details-block">
           <label for="player-x-name">PLAYER (X)</label>
           <div class="player-name-group">
-            <input
-              id="player-x-name"
-              class="player-name"
-              maxlength="5"
-              value="XXX"
-              disabled
-            />
-            <i
-              class="fa-regular fa-pen-to-square"
-              onClick="modifyPlayerName(0)"
-            ></i>
+            <span id="player-x-name"></span>
           </div>
           <span id="x-wins">0</span>
         </div>
@@ -50,22 +48,11 @@
         <div class="details-block">
           <label for="player-o-name">PLAYER (O)</label>
           <div class="player-name-group">
-            <input
-              id="player-o-name"
-              class="player-name"
-              maxlength="5"
-              value="OOO"
-              disabled
-            />
-            <i
-              class="fa-regular fa-pen-to-square"
-              onClick="modifyPlayerName(1)"
-            ></i>
+            <span id="player-o-name"></span>
           </div>
           <span id="o-wins">0</span>
         </div>
       </section>
-      <button id="new-game">New game</button>
     </main>
     <script src="main.js"></script>
     <script
