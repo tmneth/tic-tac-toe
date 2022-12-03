@@ -1,3 +1,22 @@
+const warningBanner = document.getElementById("warning");
+const form = document.getElementById("form");
+
+(function isSessionUp() {
+  if (window.localStorage.length) {
+    warningBanner.style.display = "flex";
+    form.style.display = "none";
+  } else {
+    warningBanner.style.display = "none";
+    form.style.display = "flex";
+  }
+})();
+
+const terminateSession = () => {
+  localStorage.clear();
+  warningBanner.style.display = "none";
+  form.style.display = "flex";
+};
+
 let sessionData = {
   sessionName: "",
   X: { name: "X", wins: 0 },

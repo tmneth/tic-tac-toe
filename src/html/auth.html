@@ -11,8 +11,9 @@
   </head>
   <body>
     <main>
-      <form id="form">
+      <div class="form-wrapper">
         <h3 class="auth-title">Welcome to tic-tac-toe!</h3>
+
         <span class="auth-list-title">Here are some rules</span>
         <ul>
           <li>Click on the tiles to make your move</li>
@@ -20,20 +21,40 @@
           <li>You can always restart your session to go back here</li>
           <li>Have fun</li>
         </ul>
-        <div class="input-section">
-          <label for="session-name">Session's name</label>
-          <input id="session-name" type="text" maxlength="10" required />
+        <div id="warning">
+          <h4 class="warning-msg">
+            It looks like you have an active game session up!
+          </h4>
+          <div class="form-controls">
+            <button class="styled-button" onClick="terminateSession();">
+              Terminate
+            </button>
+            <a href="index.html">
+              <button class="styled-button">Join</button>
+            </a>
+          </div>
         </div>
-        <div class="input-section">
-          <label for="player-x-name">X's player's name</label>
-          <input id="player-x-name" type="text" maxlength="10" required />
-        </div>
-        <div class="input-section">
-          <label for="player-o-name">O's player's name</label>
-          <input id="player-o-name" type="text" maxlength="10" required />
-        </div>
-        <input id="start-session" value="Continue" type="submit" />
-      </form>
+        <form id="form">
+          <div class="input-section">
+            <label for="session-name">Session's name</label>
+            <input id="session-name" type="text" maxlength="10" required />
+          </div>
+          <div class="input-section">
+            <label for="player-x-name">X's player's name</label>
+            <input id="player-x-name" type="text" maxlength="10" required />
+          </div>
+          <div class="input-section">
+            <label for="player-o-name">O's player's name</label>
+            <input id="player-o-name" type="text" maxlength="10" required />
+          </div>
+          <input
+            class="styled-button"
+            id="start-session"
+            value="Continue"
+            type="submit"
+          />
+        </form>
+      </div>
     </main>
 
     <script src="../js/auth.js"></script>

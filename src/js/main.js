@@ -1,53 +1,58 @@
 let sessionData = JSON.parse(window.localStorage.getItem("sessionData"));
 
-(function updateGameState() {
-  document.title = sessionData.sessionName;
-
-  document.getElementById("player-x-name").innerHTML = sessionData["X"].name;
-  document.getElementById("player-o-name").innerHTML = sessionData["O"].name;
-})();
-
-currPlayer = "X";
-currGameNum = 0;
-gameIsFinished = false;
-
 const strike = document.getElementById("strike");
+const firstPlayerName = document.getElementById("player-x-name");
+const secondPlayerName = document.getElementById("player-o-name");
 const firstPlayerWinsCount = document.getElementById("x-wins");
 const secondPlayerWinsCount = document.getElementById("o-wins");
 const tiesCount = document.getElementById("ties");
 const turn = document.getElementById("turn");
 const startNewGame = document.getElementById("new-game");
-
 const squares = document.querySelectorAll(".square");
+
+(function updateGameState() {
+  document.title = sessionData.sessionName;
+
+  firstPlayerName.innerHTML = sessionData["X"].name;
+  secondPlayerName.innerHTML = sessionData["O"].name;
+  firstPlayerWinsCount.innerHTML = sessionData["X"].wins;
+  secondPlayerWinsCount.innerHTML = sessionData["O"].wins;
+  tiesCount.innerHTML = sessionData.ties;
+
+  currPlayer = "X";
+  gameIsFinished = false;
+})();
 
 const padState = Array(squares.length);
 padState.fill(null);
 
-console.log(padState);
-
 squares.forEach((square) => square.addEventListener("click", squareClick));
+
+function recordMove(firstPlayer, secondPlayer, square) {
+  const squareNum = square.dataset.index;
+
+  square.innerHTML = firstPlayer;
+  padState[squareNum - 1] = firstPlayer;
+  currPlayer = secondPlayer;
+}
 
 function squareClick(event) {
   const square = event.target;
-  const squareNum = square.dataset.index;
 
   if (gameIsFinished) return;
 
   if (square.innerHTML) {
     return;
   } else if (currPlayer === "X") {
-    square.innerHTML = "X";
-    padState[squareNum - 1] = "X";
-    currPlayer = "O";
+    recordMove("X", "O", square);
   } else {
-    square.innerHTML = "O";
-    padState[squareNum - 1] = "O";
-    currPlayer = "X";
+    recordMove("O", "X", square);
   }
+
   turn.innerHTML = `${currPlayer}'s Turn`;
+
   squareHover();
   identifyWinner();
-  //   console.log(padState);
 }
 
 document.body.addEventListener("keydown", squareKeyTrigger, false);
@@ -58,20 +63,16 @@ function squareKeyTrigger(event) {
   for (let numCode = 49, i = 0; numCode <= 57; numCode++, i++) {
     if (keyCode === numCode) {
       const square = squares[i];
-      const squareNum = square.dataset.index;
       if (gameIsFinished) return;
 
       if (square.innerHTML) {
         return;
       } else if (currPlayer === "X") {
-        square.innerHTML = "X";
-        padState[squareNum - 1] = "X";
-        currPlayer = "O";
+        recordMove("X", "O", square);
       } else {
-        square.innerHTML = "O";
-        padState[squareNum - 1] = "O";
-        currPlayer = "X";
+        recordMove("O", "X", square);
       }
+
       turn.innerHTML = `${currPlayer}'s Turn`;
       squareHover();
       identifyWinner();
@@ -139,12 +140,17 @@ function identifyWinner() {
 function updateTieCount() {
   sessionData.ties++;
   tiesCount.innerHTML = sessionData.ties;
+  window.localStorage.setItem("sessionData", JSON.stringify(sessionData));
 }
 
 function updateWinsCount(userId) {
   sessionData[userId].wins++;
-  if (userId === "X") firstPlayerWinsCount.innerHTML = sessionData[userId].wins;
-  else secondPlayerWinsCount.innerHTML = sessionData[userId].wins;
+  if (userId === "X") {
+    firstPlayerWinsCount.innerHTML = sessionData[userId].wins;
+  } else {
+    secondPlayerWinsCount.innerHTML = sessionData[userId].wins;
+  }
+  window.localStorage.setItem("sessionData", JSON.stringify(sessionData));
 }
 
 function newGame() {
