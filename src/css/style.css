@@ -176,9 +176,9 @@ form > div > input {
 
   .restart-session {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    top: auto;
+    top: 10px;
+    right: 10px;
+    bottom: auto;
     left: auto;
   }
   .form-controls {
@@ -189,6 +189,9 @@ form > div > input {
 
   .styled-button {
     width: 100% !important;
+  }
+  #turn {
+    font-size: 2rem;
   }
 }
 
